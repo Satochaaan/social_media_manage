@@ -93,7 +93,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
         unselectedItemColor: kColorText,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        onTap: ,
+        onTap: _onPageChanged,
       ),
     );
   }
