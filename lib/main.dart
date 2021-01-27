@@ -9,6 +9,9 @@ const kColorViewrsIcon = Color(0xff9694ff);
 const kColorFollowersIcon = Color(0xff57caeb);
 const kColorFollowingIcon = Color(0xff5ddab4);
 const kColorSavedIcon = Color(0xffff7976);
+const kColorSearchField = Color(0xfff2f7ff);
+const kDashboardPeopleUrl =
+    'https://user-images.githubusercontent.com/44778185/106063024-ef8e2600-613a-11eb-8ae4-a4f10a595f33.png';
 
 void main() {
   runApp(MyApp());
@@ -20,9 +23,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: ThemeData.light().copyWith(
         primaryColor: kColorPrimary,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        backgroundColor: kColorPrimary,
       ),
       home: SocialMediaManage(),
     );
@@ -39,14 +42,7 @@ class SocialMediaManage extends StatefulWidget {
 
 /// SocialMediaManageState
 class _SocialMediaManageState extends State<SocialMediaManage> {
-  int _counter = 0;
   int _selectedIndex = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   void _onPageChanged(int index) {
     setState(() {
@@ -58,17 +54,40 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('title'),
+        title: Text(
+          'Dashboard',
+          style: TextStyle(color: kColorText, fontSize: 26),
+        ),
+        centerTitle: false,
+        elevation: 0,
+        actions: [
+          Image.network(kDashboardPeopleUrl),
+        ],
       ),
       body: Center(
         child: Column(
-          children: <Widget>[],
+          children: <Widget>[
+            TextField(
+              decoration: const InputDecoration(
+                // labelText: 'Search',
+                hintText: 'Search',
+                filled: true,
+                fillColor: kColorSearchField,
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20.0),
+                  ),
+                  borderSide: BorderSide(
+                    width: 0,
+                    color: kColorSearchField,
+                  ),
+                ),
+              ),
+            ),
+            Table(),
+          ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
