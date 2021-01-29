@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const kColorPrimary = Color(0xffffffff);
 const kColorSecondary = Color(0xff435ebe);
 const kColorText = Color(0xff303e65);
-const kColorTextSub = Color(0x9aa7c6);
+const kColorTextSub = Color(0xff8b9abe);
 const kColorViewrsIcon = Color(0xff9694ff);
 const kColorFollowersIcon = Color(0xff57caeb);
 const kColorFollowingIcon = Color(0xff5ddab4);
@@ -54,39 +54,56 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Dashboard',
-          style: TextStyle(color: kColorText, fontSize: 26),
+        toolbarHeight: 80,
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Dashboard',
+              style: TextStyle(color: kColorText, fontSize: 26),
+            ),
+            Text(
+              '14 Jan, 2021',
+              style: TextStyle(color: kColorTextSub, fontSize: 20),
+            ),
+          ],
         ),
         centerTitle: false,
         elevation: 0,
         actions: [
-          Image.network(kDashboardPeopleUrl),
+          Image.network(
+            kDashboardPeopleUrl,
+            width: 70,
+            height: 70,
+          ),
         ],
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(
-                // labelText: 'Search',
-                hintText: 'Search',
-                filled: true,
-                fillColor: kColorSearchField,
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
-                  ),
-                  borderSide: BorderSide(
-                    width: 0,
-                    color: kColorSearchField,
+        child: Container(
+          color: kColorPrimary,
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Search',
+                  filled: true,
+                  fillColor: kColorSearchField,
+                  prefixIcon: Icon(Icons.search),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(13.0),
+                    ),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: kColorSearchField,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Table(),
-          ],
+              Table(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
