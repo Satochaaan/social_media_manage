@@ -82,26 +82,61 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
       body: Center(
         child: Container(
           color: kColorPrimary,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: <Widget>[
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: 'Search',
-                  filled: true,
-                  fillColor: kColorSearchField,
-                  prefixIcon: Icon(Icons.search),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(13.0),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width - 40,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'Search',
+                    filled: true,
+                    fillColor: kColorSearchField,
+                    prefixIcon: Icon(Icons.search),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0),
+                      ),
+                      borderSide: BorderSide(
+                        width: 0,
+                        color: kColorSearchField,
+                      ),
                     ),
-                    borderSide: BorderSide(
-                      width: 0,
-                      color: kColorSearchField,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0),
+                      ),
+                      borderSide: BorderSide(
+                        width: 0,
+                        color: kColorSearchField,
+                      ),
                     ),
                   ),
                 ),
               ),
-              Table(),
+              Table(
+                children: [
+                  TableRow(
+                    children: [
+                      Column(
+                        children: [
+                          Text('a'),
+                          Text('b'),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text('c'),
+                          Text('d'),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ),
