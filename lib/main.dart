@@ -117,25 +117,49 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                   ),
                 ),
               ),
-              Table(
-                children: [
-                  TableRow(
-                    children: [
-                      Column(
-                        children: [
-                          Text('a'),
-                          Text('b'),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text('c'),
-                          Text('d'),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Table(
+                  children: [
+                    TableRow(
+                      children: [
+                        Column(
+                          children: [
+                            TableItem(
+                              iconData: Icons.remove_red_eye,
+                              title: '112.000',
+                              subTitle: 'Viewers',
+                            ),
+                            SizedBox(height: 8),
+                            TableItem(
+                              iconData: Icons.remove_red_eye,
+                              title: '112.000',
+                              subTitle: 'Viewers',
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            TableItem(
+                              iconData: Icons.remove_red_eye,
+                              title: '112.000',
+                              subTitle: 'Viewers',
+                            ),
+                            SizedBox(height: 8),
+                            TableItem(
+                              iconData: Icons.remove_red_eye,
+                              title: '112.000',
+                              subTitle: 'Viewers',
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -165,6 +189,62 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
         onTap: _onPageChanged,
+      ),
+    );
+  }
+}
+
+class TableItem extends StatelessWidget {
+  final IconData iconData;
+  final String title;
+  final String subTitle;
+
+  TableItem({
+    this.iconData,
+    this.title,
+    this.subTitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: kColorSearchField,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.green,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(iconData),
+          ),
+          Column(
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                    color: kColorText,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                subTitle,
+                style: TextStyle(
+                  color: kColorTextSub,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
