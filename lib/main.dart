@@ -208,6 +208,10 @@ class TableItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 20,
+      ),
       decoration: BoxDecoration(
         border: Border.all(
           color: kColorSearchField,
