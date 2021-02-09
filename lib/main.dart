@@ -126,36 +126,38 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                   children: [
                     TableRow(
                       children: [
-                        Column(
-                          children: [
-                            TableItem(
-                              iconData: Icons.remove_red_eye,
-                              title: '112.000',
-                              subTitle: 'Viewers',
-                            ),
-                            SizedBox(height: 8),
-                            TableItem(
-                              iconData: Icons.remove_red_eye,
-                              title: '112.000',
-                              subTitle: 'Viewers',
-                            ),
-                          ],
+                        TableItem(
+                          iconData: Icons.remove_red_eye,
+                          title: '112.000',
+                          subTitle: 'Viewers',
                         ),
-                        Column(
-                          children: [
-                            TableItem(
-                              iconData: Icons.remove_red_eye,
-                              title: '112.000',
-                              subTitle: 'Viewers',
-                            ),
-                            SizedBox(height: 8),
-                            TableItem(
-                              iconData: Icons.remove_red_eye,
-                              title: '112.000',
-                              subTitle: 'Viewers',
-                            ),
-                          ],
-                        )
+                        // SizedBox(width: 8),
+                        TableItem(
+                          iconData: Icons.people,
+                          title: '112.000',
+                          subTitle: 'Viewers',
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        SizedBox(height: 16),
+                        SizedBox(height: 16),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableItem(
+                          iconData: Icons.remove_red_eye,
+                          title: '112.000',
+                          subTitle: 'Viewers',
+                        ),
+                        // SizedBox(width: 8),
+                        TableItem(
+                          iconData: Icons.people,
+                          title: '112.000',
+                          subTitle: 'Viewers',
+                        ),
                       ],
                     ),
                   ],
@@ -209,15 +211,15 @@ class TableItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 20,
+        vertical: 24,
+        horizontal: 16,
       ),
       decoration: BoxDecoration(
         border: Border.all(
           color: kColorSearchField,
           width: 3,
         ),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
         children: [
@@ -230,20 +232,27 @@ class TableItem extends StatelessWidget {
             ),
             child: Icon(iconData),
           ),
+          SizedBox(
+            width: 8,
+          ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,
+                textAlign: TextAlign.start,
                 style: TextStyle(
                     color: kColorText,
-                    fontSize: 20,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
               Text(
                 subTitle,
+                textAlign: TextAlign.start,
                 style: TextStyle(
                   color: kColorTextSub,
-                  fontSize: 18,
+                  fontSize: 14,
                 ),
               ),
             ],
