@@ -47,6 +47,7 @@ class SocialMediaManage extends StatefulWidget {
 /// SocialMediaManageState
 class _SocialMediaManageState extends State<SocialMediaManage> {
   int _selectedIndex = 0;
+  String dropDownValue = 'Weeks';
 
   void _onPageChanged(int index) {
     setState(() {
@@ -173,6 +174,34 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Profile Visit'),
+                  DropdownButton(
+                    value: dropDownValue,
+                    elevation: 16,
+                    items: <String>['Weeks', 'Days']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String value) {
+                      setState(() {
+                        dropDownValue = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 16,
+              ),
             ],
           ),
         ),
@@ -206,6 +235,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
   }
 }
 
+// テーブルアイテムWidget
 class TableItem extends StatelessWidget {
   final IconData iconData;
   final String title;
