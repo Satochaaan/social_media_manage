@@ -10,6 +10,10 @@ const kColorFollowersIcon = Color(0xff57caeb);
 const kColorFollowingIcon = Color(0xff5ddab4);
 const kColorSavedIcon = Color(0xffff7976);
 const kColorSearchField = Color(0xfff2f7ff);
+const kColorIconPurple = Color(0xff9694ff);
+const kColorIconBlue = Color(0xff57caeb);
+const kColorIconGreen = Color(0xff5ddab4);
+const kColorIconOrange = Color(0xffff7976);
 const kDashboardPeopleUrl =
     'https://user-images.githubusercontent.com/44778185/106063024-ef8e2600-613a-11eb-8ae4-a4f10a595f33.png';
 
@@ -130,33 +134,38 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                           iconData: Icons.remove_red_eye,
                           title: '112.000',
                           subTitle: 'Viewers',
+                          iconColor: kColorIconPurple,
                         ),
-                        // SizedBox(width: 8),
+                        // SizedBox(width: 1),
                         TableItem(
-                          iconData: Icons.people,
-                          title: '112.000',
-                          subTitle: 'Viewers',
+                          iconData: Icons.person,
+                          title: '183.000',
+                          subTitle: 'Followers',
+                          iconColor: kColorIconBlue,
                         ),
                       ],
                     ),
                     TableRow(
                       children: [
                         SizedBox(height: 16),
+                        // SizedBox(height: 16),
                         SizedBox(height: 16),
                       ],
                     ),
                     TableRow(
                       children: [
                         TableItem(
-                          iconData: Icons.remove_red_eye,
-                          title: '112.000',
-                          subTitle: 'Viewers',
+                          iconData: Icons.person_add_alt_1,
+                          title: '80.000',
+                          subTitle: 'Following',
+                          iconColor: kColorIconGreen,
                         ),
-                        // SizedBox(width: 8),
+                        // SizedBox(width: 1),
                         TableItem(
-                          iconData: Icons.people,
-                          title: '112.000',
-                          subTitle: 'Viewers',
+                          iconData: Icons.bookmark,
+                          title: '112',
+                          subTitle: 'Saved',
+                          iconColor: kColorIconOrange,
                         ),
                       ],
                     ),
@@ -200,11 +209,13 @@ class TableItem extends StatelessWidget {
   final IconData iconData;
   final String title;
   final String subTitle;
+  final Color iconColor;
 
   TableItem({
     this.iconData,
     this.title,
     this.subTitle,
+    this.iconColor,
   });
 
   @override
@@ -224,13 +235,17 @@ class TableItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 50,
-            height: 50,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(8),
+              color: iconColor,
+              borderRadius: BorderRadius.circular(14),
             ),
-            child: Icon(iconData),
+            child: Icon(
+              iconData,
+              color: Colors.white,
+              size: 18,
+            ),
           ),
           SizedBox(
             width: 8,
