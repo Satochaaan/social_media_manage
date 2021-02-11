@@ -127,6 +127,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Table(
+                  columnWidths: {1: FractionColumnWidth(.05)},
                   children: [
                     TableRow(
                       children: [
@@ -136,7 +137,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                           subTitle: 'Viewers',
                           iconColor: kColorIconPurple,
                         ),
-                        // SizedBox(width: 1),
+                        SizedBox(width: 1),
                         TableItem(
                           iconData: Icons.person,
                           title: '183.000',
@@ -148,7 +149,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                     TableRow(
                       children: [
                         SizedBox(height: 16),
-                        // SizedBox(height: 16),
+                        SizedBox(height: 16),
                         SizedBox(height: 16),
                       ],
                     ),
@@ -160,7 +161,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                           subTitle: 'Following',
                           iconColor: kColorIconGreen,
                         ),
-                        // SizedBox(width: 1),
+                        SizedBox(width: 1),
                         TableItem(
                           iconData: Icons.bookmark,
                           title: '112',
