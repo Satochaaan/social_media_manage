@@ -66,7 +66,11 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
           children: [
             Text(
               'Dashboard',
-              style: TextStyle(color: kColorText, fontSize: 26),
+              style: TextStyle(
+                color: kColorText,
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Text(
               '14 Jan, 2021',
@@ -77,133 +81,146 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
         centerTitle: false,
         elevation: 0,
         actions: [
-          Image.network(
-            kDashboardPeopleUrl,
-            width: 70,
-            height: 70,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.network(
+              kDashboardPeopleUrl,
+              width: 60,
+              height: 60,
+            ),
           ),
         ],
       ),
-      body: Center(
-        child: Container(
-          color: kColorPrimary,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 8,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width - 40,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Search',
-                    filled: true,
-                    fillColor: kColorSearchField,
-                    prefixIcon: Icon(Icons.search),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15.0),
-                      ),
-                      borderSide: BorderSide(
-                        width: 0,
-                        color: kColorSearchField,
-                      ),
+      body: Container(
+        color: kColorPrimary,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 8,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Search',
+                  filled: true,
+                  fillColor: kColorSearchField,
+                  prefixIcon: Icon(Icons.search),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15.0),
-                      ),
-                      borderSide: BorderSide(
-                        width: 0,
-                        color: kColorSearchField,
-                      ),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: kColorSearchField,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: kColorSearchField,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 16,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: Table(
-                  columnWidths: {1: FractionColumnWidth(.05)},
-                  children: [
-                    TableRow(
-                      children: [
-                        TableItem(
-                          iconData: Icons.remove_red_eye,
-                          title: '112.000',
-                          subTitle: 'Viewers',
-                          iconColor: kColorIconPurple,
-                        ),
-                        SizedBox(width: 1),
-                        TableItem(
-                          iconData: Icons.person,
-                          title: '183.000',
-                          subTitle: 'Followers',
-                          iconColor: kColorIconBlue,
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        SizedBox(height: 16),
-                        SizedBox(height: 16),
-                        SizedBox(height: 16),
-                      ],
-                    ),
-                    TableRow(
-                      children: [
-                        TableItem(
-                          iconData: Icons.person_add_alt_1,
-                          title: '80.000',
-                          subTitle: 'Following',
-                          iconColor: kColorIconGreen,
-                        ),
-                        SizedBox(width: 1),
-                        TableItem(
-                          iconData: Icons.bookmark,
-                          title: '112',
-                          subTitle: 'Saved',
-                          iconColor: kColorIconOrange,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Table(
+                columnWidths: {1: FractionColumnWidth(.05)},
                 children: [
-                  Text('Profile Visit'),
-                  DropdownButton(
-                    value: dropDownValue,
-                    elevation: 16,
-                    items: <String>['Weeks', 'Days']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (String value) {
-                      setState(() {
-                        dropDownValue = value;
-                      });
-                    },
+                  TableRow(
+                    children: [
+                      TableItem(
+                        iconData: Icons.remove_red_eye,
+                        title: '112.000',
+                        subTitle: 'Viewers',
+                        iconColor: kColorIconPurple,
+                      ),
+                      SizedBox(width: 1),
+                      TableItem(
+                        iconData: Icons.person,
+                        title: '183.000',
+                        subTitle: 'Followers',
+                        iconColor: kColorIconBlue,
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      SizedBox(height: 16),
+                      SizedBox(height: 16),
+                      SizedBox(height: 16),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableItem(
+                        iconData: Icons.person_add_alt_1,
+                        title: '80.000',
+                        subTitle: 'Following',
+                        iconColor: kColorIconGreen,
+                      ),
+                      SizedBox(width: 1),
+                      TableItem(
+                        iconData: Icons.bookmark,
+                        title: '112',
+                        subTitle: 'Saved',
+                        iconColor: kColorIconOrange,
+                      ),
+                    ],
                   ),
                 ],
               ),
-              SizedBox(
-                height: 16,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Profile Visit',
+                    style: TextStyle(
+                      color: kColorText,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton(
+                      value: dropDownValue,
+                      elevation: 16,
+                      items: <String>['Weeks', 'Days']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String value) {
+                        setState(() {
+                          dropDownValue = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -254,7 +271,7 @@ class TableItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: 24,
-        horizontal: 16,
+        horizontal: 24,
       ),
       decoration: BoxDecoration(
         border: Border.all(
@@ -266,8 +283,8 @@ class TableItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 45,
+            height: 45,
             decoration: BoxDecoration(
               color: iconColor,
               borderRadius: BorderRadius.circular(14),
@@ -275,11 +292,11 @@ class TableItem extends StatelessWidget {
             child: Icon(
               iconData,
               color: Colors.white,
-              size: 18,
+              size: 20,
             ),
           ),
           SizedBox(
-            width: 8,
+            width: 16,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -290,7 +307,7 @@ class TableItem extends StatelessWidget {
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     color: kColorText,
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               Text(
