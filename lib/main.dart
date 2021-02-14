@@ -196,22 +196,32 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton(
-                      value: dropDownValue,
-                      elevation: 16,
-                      items: <String>['Weeks', 'Days']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (String value) {
-                        setState(() {
-                          dropDownValue = value;
-                        });
-                      },
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: kColorSearchField,
+                        width: 3,
+                      ),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        value: dropDownValue,
+                        elevation: 16,
+                        items: <String>['Weeks', 'Days']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String value) {
+                          setState(() {
+                            dropDownValue = value;
+                          });
+                        },
+                      ),
                     ),
                   ),
                 ],
