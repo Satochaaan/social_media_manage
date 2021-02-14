@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 // 定数
@@ -230,6 +231,7 @@ class _SocialMediaManageState extends State<SocialMediaManage> {
             SizedBox(
               height: 16,
             ),
+            BarChartSample()
           ],
         ),
       ),
@@ -333,5 +335,183 @@ class TableItem extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+// 棒グラフ
+class BarChartSample extends StatelessWidget {
+  final Color dark = const Color(0xff3b8c75);
+  final Color normal = const Color(0xff64caad);
+  final Color light = const Color(0xff73e8c9);
+  final barWidth = 30.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 1.66,
+      child: Card(
+        elevation: 1,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: BarChart(
+            BarChartData(
+              alignment: BarChartAlignment.center,
+              barTouchData: BarTouchData(
+                enabled: false,
+              ),
+              titlesData: FlTitlesData(
+                show: true,
+                bottomTitles: SideTitles(
+                  showTitles: true,
+                  getTextStyles: (value) =>
+                      const TextStyle(color: Color(0xff939393), fontSize: 10),
+                  margin: 10,
+                  getTitles: (double value) {
+                    switch (value.toInt()) {
+                      case 0:
+                        return 'Mon';
+                      case 1:
+                        return 'Tue';
+                      case 2:
+                        return 'Wed';
+                      case 3:
+                        return 'Thu';
+                      case 4:
+                        return 'Fri';
+                      case 5:
+                        return 'Sat';
+                      case 6:
+                        return 'Sun';
+                      default:
+                        return '';
+                    }
+                  },
+                ),
+                leftTitles: SideTitles(
+                  showTitles: true,
+                  getTextStyles: (value) => const TextStyle(
+                      color: Color(
+                        0xff939393,
+                      ),
+                      fontSize: 10),
+                  margin: 0,
+                ),
+              ),
+              gridData: FlGridData(
+                show: true,
+                checkToShowHorizontalLine: (value) => value % 10 == 0,
+                getDrawingHorizontalLine: (value) => FlLine(
+                  color: const Color(0xffe7e8ec),
+                  strokeWidth: 1,
+                ),
+              ),
+              borderData: FlBorderData(
+                show: false,
+              ),
+              groupsSpace: 20,
+              barGroups: getData(),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  List<BarChartGroupData> getData() {
+    return [
+      BarChartGroupData(
+        x: 0,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 10,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 10, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 1,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 20,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 20, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 2,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 40,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 40, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 3,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 30,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 30, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 4,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 20,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 20, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 5,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 10,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 10, kColorFollowersIcon),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+      BarChartGroupData(
+        x: 6,
+        barsSpace: 4,
+        barRods: [
+          BarChartRodData(
+              y: 30,
+              width: barWidth,
+              rodStackItems: [
+                BarChartRodStackItem(0, 30, kColorSecondary),
+              ],
+              borderRadius: const BorderRadius.all(Radius.zero)),
+        ],
+      ),
+    ];
   }
 }
