@@ -1,16 +1,9 @@
 # social_media_manage
 
-design practice.
+以下のデザインを元にFlutterでUIのみ実装しました。
 
-## Getting Started
+[参考にしたデザイン](https://dribbble.com/shots/14937007-Social-Media-Management-App?utm_source=Clipboard_Shot&utm_campaign=choirulsyafril&utm_content=Social%20Media%20Management%20App&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=choirulsyafril&utm_content=Social%20Media%20Management%20App&utm_medium=Social_Share)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 実装結果
+![social_media_manage](https://user-images.githubusercontent.com/44778185/119742758-6bb73100-bec3-11eb-9a27-b39fda5127cd.png)
