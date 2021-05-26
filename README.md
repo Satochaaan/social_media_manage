@@ -6,4 +6,5 @@
 
 
 ## 実装結果
-![social_media_manage](https://user-images.githubusercontent.com/44778185/119742758-6bb73100-bec3-11eb-9a27-b39fda5127cd.png)
+![social_media_manage (1)](https://user-images.githubusercontent.com/44778185/119742864-acaf4580-bec3-11eb-8b34-07374b3d8a94.png)
+
